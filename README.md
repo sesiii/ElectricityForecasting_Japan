@@ -2,6 +2,9 @@
 
 A deep learning model for forecasting electricity demand using weather data from multiple cities. The model combines LSTM neural networks with comprehensive weather features to predict future electricity consumption patterns.
 
+![Electricity Demand Prediction](images/prediction_results.png)
+*Sample prediction results showing actual vs predicted electricity demand with confidence intervals*
+
 ## Features
 
 - Multi-city weather data integration
@@ -11,6 +14,21 @@ A deep learning model for forecasting electricity demand using weather data from
 - Comprehensive error metrics and visualization
 - Built-in data validation and error handling
 - Model performance monitoring with early stopping
+
+## Model Architecture
+
+![Model Architecture](images/Smodel.png)
+*LSTM model architecture with layer specifications*
+
+The model uses a stacked LSTM architecture:
+1. Input Layer
+2. LSTM (64 units) with return sequences
+3. Dropout (0.2)
+4. LSTM (32 units)
+5. Dropout (0.2)
+6. Dense (16 units, ReLU)
+7. Dense (8 units, ReLU)
+8. Dense (1 unit, output)
 
 ## Prerequisites
 
@@ -29,9 +47,24 @@ matplotlib
 │   ├── Weather/           # Weather data CSV files for different cities
 │   └── electricity_demand/
 │       └── demand.csv     # Electricity demand historical data
-├── main.py               # Main script
+├── images/               # Store your visualization images here
+├── main.py              # Main script
 └── best_model.h5        # Saved best model weights (generated during training)
 ```
+
+## Sample Results
+
+### Prediction vs. Actual
+![Prediction Results](images/image1.png)
+*Actual vs. predicted electricity demand with confidence intervals*
+
+### Feature Importance Analysis
+![Feature Importance](images/image3.png)
+*Top features contributing to the prediction model*
+
+### Training History
+![Training History](images/image2.png)
+*Model loss during training showing convergence*
 
 ## Data Format
 
@@ -41,10 +74,12 @@ Place your weather CSV files in the `data/Weather` directory. Each file should:
 - Include columns for temperature, humidity, wind direction, etc.
 - Have a 'datetime' column
 
+
 ### Demand Data
 The `demand.csv` file should contain:
 - A 'datetime' column
 - An 'actual_performance' column with electricity demand values
+
 
 ## Key Functions
 
@@ -76,17 +111,6 @@ The `demand.csv` file should contain:
 - Visualizes top contributing features
 - Helps in understanding model decisions
 
-## Model Architecture
-
-The model uses a stacked LSTM architecture:
-1. Input Layer
-2. LSTM (64 units) with return sequences
-3. Dropout (0.2)
-4. LSTM (32 units)
-5. Dropout (0.2)
-6. Dense (16 units, ReLU)
-7. Dense (8 units, ReLU)
-8. Dense (1 unit, output)
 
 ## Usage
 
@@ -121,21 +145,6 @@ The model provides:
 - Training history visualization
 - Feature importance analysis
 - Model performance statistics
-
-## Model Performance Metrics
-
-The model evaluates performance using:
-- Mean Squared Error (MSE)
-- Mean Absolute Error (MAE)
-- Root Mean Squared Error (RMSE)
-- Mean Absolute Percentage Error (MAPE)
-
-## Visualization
-
-The script generates three main plots:
-1. Prediction results with confidence intervals
-2. Training/validation loss history
-3. Feature importance analysis
 
 ## Error Handling
 
