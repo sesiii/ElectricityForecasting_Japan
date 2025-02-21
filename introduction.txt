@@ -1,0 +1,11 @@
+Practical Assignment: Electricity Demand Forecasting Using Machine Learning
+Task Overview
+ electricity demand forecasting using machine learning.
+
+
+Implementation Details
+
+Follow the instructions within the notebook to develop the electricity demand forecasting model.
+Ensure all required steps are completed, including data preprocessing, model training, and evaluation.
+Submission
+
